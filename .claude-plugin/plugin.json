@@ -1,0 +1,9 @@
+{
+  "name": "zilliz-prospector",
+  "version": "0.1.0",
+  "description": "Generate scored prospecting lists for Zilliz/Milvus with research, scoring, outreach templates, and formatted spreadsheet output",
+  "author": {
+    "name": "Ivan Tang"
+  },
+  "keywords": ["prospecting", "sales", "zilliz", "milvus", "vector-database", "lead-generation"]
+}
