@@ -17,31 +17,49 @@ Extract from the user's prompt:
 
 - **Industry / Domain**: e.g., "legaltech in APAC", "e-commerce in Southeast Asia", "healthcare AI in ANZ"
 - **Region** (if specified): geographic focus
-- **Number of prospects**: default 10-15, user can request up to 50
+- **Number of prospects to deliver**: how many the user wants in the final output (default 15, user can request any number)
 - **Scoring overrides**: if the user wants to adjust the default scoring weights
 - **Specific angles**: e.g., "companies using OpenSearch", "companies building RAG pipelines"
 
 If the request is vague (e.g., "find me some prospects"), ask which industry/domain and region to focus on before proceeding.
 
+> **Critical: Wide-Funnel Approach** — Regardless of how many prospects the user requests in the final deliverable, you MUST always research and identify **100 to 200 candidate companies** during the research phase (Step 2). All candidates are then scored (Step 3), ranked by Lead Warmth Score descending, and only the **top N** (the user's requested count) are included in the final spreadsheet and outreach document. This ensures the delivered prospects are the highest-quality matches from a large candidate pool, not just the first ones found.
+
 ## Step 2: Research
 
 This is the heart of the skill. Use web search extensively — expect to run many searches per prospect.
 
-### 2a. Identify Candidate Companies
+### 2a. Identify 100-200 Candidate Companies
 
-Start broad, then narrow. Search for:
+Cast a wide net. Your goal is to build an initial list of **100 to 200 candidate companies** before any scoring or filtering. Search aggressively across multiple angles:
 
-1. **Industry landscape**: "top [industry] companies in [region]", "[industry] startups [region] funding"
-2. **Tech stack signals**: "[industry] companies using OpenSearch/Elasticsearch/vector search"
-3. **AI adoption signals**: "[company] AI features", "[company] machine learning", "[industry] GenAI [region]"
+1. **Industry landscape**: "top [industry] companies in [region]", "[industry] startups [region] funding", "[industry] market leaders [region]", "[industry] unicorns [region]"
+2. **Tech stack signals**: "[industry] companies using OpenSearch/Elasticsearch/vector search", "[industry] companies using embeddings", "[industry] AI search [region]"
+3. **AI adoption signals**: "[company] AI features", "[company] machine learning", "[industry] GenAI [region]", "[industry] companies building AI products [region]"
 4. **Cloud case studies**: Search AWS, GCP, Azure case study pages filtered by region/industry — these often reveal exact infrastructure
 5. **Funding/growth signals**: Recent funding rounds, IPOs, rapid hiring indicate budget and ambition
+6. **Industry directories and rankings**: Crunchbase lists, G2/Gartner quadrants, industry association member lists, "top 100 [industry] companies" lists
+7. **Accelerator/incubator portfolios**: YC, Sequoia, a16z portfolios filtered by industry/region
+8. **Conference attendee/sponsor lists**: Major industry conferences often publish sponsor and speaker company lists
 
-Aim to identify 2-3x more candidates than the final list, then filter to strongest fits.
+Run **many parallel searches** across these categories. Do not stop at the first page of results — dig through multiple result pages and follow secondary links (e.g., "similar companies" lists, competitor roundups, market maps). Keep a running tally and continue until you have at least 100 candidate company names.
 
-### 2b. Deep-Dive Per Company
+> **Do NOT skip this step or reduce the candidate pool.** Even if the user only wants 10 final prospects, you must still identify 100-200 candidates. The quality of the final list depends entirely on the breadth of the initial funnel.
 
-For each strong candidate, research:
+### 2b. Rapid Screening (All 100-200 Candidates)
+
+For every candidate in your pool, do a quick screening pass to gather enough information for initial scoring:
+
+- **Company website**: What they do, approximate scale, whether AI/search is relevant
+- **Quick tech signals**: A few targeted searches for "[company] vector search", "[company] AI", "[company] tech stack"
+- **News / press releases**: Recent AI launches, product announcements
+- **Crunchbase / funding data**: Funding stage, growth signals
+
+This rapid pass should give you enough to assign a preliminary Lead Warmth Score to each of the 100-200 candidates.
+
+### 2c. Deep-Dive Research (Top Candidates Only)
+
+After preliminary scoring (Step 3a), take the **top 40-50 highest-scoring candidates** and perform deep-dive research:
 
 - **Company website**: Products, scale (users, transactions, data volume)
 - **Tech blog / engineering blog**: Architecture decisions, tech stack choices
@@ -51,9 +69,11 @@ For each strong candidate, research:
 - **News / press releases**: AI launches, product announcements, partnerships
 - **Crunchbase / funding data**: Funding stage, valuation, investors
 
-### 2c. Find Key Contacts with LinkedIn Profile Links
+After deep-dive research, re-score these candidates with refined data.
 
-For each prospect, identify 3-4 ideal contacts:
+### 2d. Find Key Contacts with LinkedIn Profile Links
+
+For each prospect that will make the final deliverable (top N after final scoring), identify 3-4 ideal contacts:
 
 - **Infrastructure decision-makers**: CTO, VP Engineering, Head of Platform
 - **AI/ML leaders**: Head of AI, ML Engineering Manager
@@ -64,7 +84,7 @@ Search: `site:linkedin.com/in "[company name]" [role]`
 
 Provide full LinkedIn profile URLs when findable. If a specific URL can't be found, provide name + title + company for easy manual lookup.
 
-## Step 3: Score Each Prospect
+## Step 3: Score, Rank, and Select Top Prospects
 
 Use the **Lead Warmth Scoring Matrix** to assign a 1-10 score. Read the full matrix with anchor descriptions from: `references/scoring-matrix.md`
 
@@ -84,11 +104,27 @@ Use the **Lead Warmth Scoring Matrix** to assign a 1-10 score. Read the full mat
 2. Compute: `(E × 0.30) + (V × 0.25) + (S × 0.20) + (R × 0.15) + (SV × 0.10)`
 3. Round to nearest integer
 
+### 3a. Preliminary Scoring (All 100-200 Candidates)
+
+After the rapid screening pass (Step 2b), assign a preliminary Lead Warmth Score to every candidate based on the information gathered. This score may be rough — that's fine. The goal is to separate strong candidates from weak ones so deep-dive research is focused on the most promising companies.
+
+### 3b. Final Scoring (After Deep-Dive Research)
+
+After deep-dive research (Step 2c) on the top 40-50 candidates, re-score them with the refined data. These final scores will be more accurate and evidence-backed.
+
+### 3c. Rank and Select Top N
+
+1. **Rank all deep-dived candidates** by final Lead Warmth Score, descending
+2. **Select the top N** prospects, where N is the user's requested count (default 15)
+3. Break ties by preferring candidates with higher Evidence Strength scores (confirmed > inferred)
+
 ### Tier Assignment
 
-- **Tier 1**: Score 7-10 AND at least one confirmed evidence source
-- **Tier 2**: Score 5-8 OR strong inferred fit with medium evidence
-- **Tier 3**: Score 3-6 with mostly inferred evidence but clear alignment
+- **Tier 1**: Score 7-10 AND at least one confirmed evidence source → Immediate outreach
+- **Tier 2**: Score 5-8 OR strong inferred fit with medium evidence → Consultative outreach
+- **Tier 3**: Score 3-6 with mostly inferred evidence but clear alignment → Nurture track
+
+> **Note**: Because you are selecting the top N from a pool of 100-200 candidates, the final list should be heavily weighted toward Tier 1 and Tier 2 prospects. If the final list contains mostly Tier 3 prospects, the initial candidate pool was likely too narrow — go back to Step 2a and broaden your searches.
 
 ## Step 4: Build the Spreadsheet
 
@@ -193,8 +229,9 @@ Cite when relevant as social proof:
 
 ## Quality Standards
 
-- **Depth over breadth**: 10 deeply-researched prospects beat 30 shallow ones
+- **Wide funnel, narrow output**: Always research 100-200 candidates, then deliver only the top-ranked prospects. The user gets the cream of the crop, not the first companies you found
+- **Depth on finalists**: The top candidates selected for the final list must have deep-dive research. Shallow entries in the delivered list are unacceptable
 - **Evidence labeling is critical**: Always mark confirmed vs. inferred. "HIGH - AWS published case study" is immediately credible
 - **Pitch angles must be specific**: Reference something concrete about the company
 - **LinkedIn profiles save sales time**: Search thoroughly for actual URLs
-- **Drop weak candidates**: If research doesn't yield strong signals, don't pad the list
+- **Ranking integrity**: The final list must be sorted by Lead Warmth Score descending. Every prospect in the list should be stronger than every prospect that was cut
