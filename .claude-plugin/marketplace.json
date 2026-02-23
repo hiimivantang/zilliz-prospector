@@ -8,7 +8,7 @@
       "name": "zilliz-prospector",
       "source": "./plugins/zilliz-prospector",
       "description": "Generate scored prospecting lists for Zilliz/Milvus with research, scoring, outreach templates, and formatted spreadsheet output",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "Ivan Tang"
       },
