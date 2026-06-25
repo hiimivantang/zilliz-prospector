@@ -23,8 +23,52 @@ defined in the Zilliz Brand Guidelines & Style Guide (v1.0, August 2022).
 
 ## Logo
 
+> **CRITICAL — NEVER fabricate or recreate a logo.**
+> Do **not** draw, redraw, hand-code (SVG/CSS), AI-generate, approximate, or otherwise invent
+> the Zilliz logo, the Milvus logo, or any product logomark. The only acceptable logos are the
+> official artwork files from the Zilliz Brand Assets page. If you cannot obtain the official
+> file, **omit the logo entirely** (use the wordmark "Zilliz" in Inter, or leave a clearly
+> labeled placeholder) rather than guessing what it looks like.
+
+### Official Brand Assets (source of truth)
+
+Download official logo packages from the Zilliz Brand Assets page: **https://zilliz.com/brand-assets**
+
+Each package is a `.zip` containing the approved logo variants (typically gradient, black, and
+white versions in vector + raster formats). Use these files directly — do not modify them.
+
+| Asset | Download package | Preview image |
+|-------|------------------|---------------|
+| Zilliz | `https://assets.zilliz.com/zilliz-logo.zip` | `https://zilliz.com/images/brandAssets/zilliz.png` |
+| Milvus | `https://assets.zilliz.com/milvus-logo.zip` | `https://zilliz.com/images/brandAssets/milvus.png` |
+| Co-brand (Zilliz × partner) | `https://assets.zilliz.com/cobrand.zip` | `https://zilliz.com/images/brandAssets/cobrand.png` |
+| Zilliz (powered by Milvus) | `https://assets.zilliz.com/zilliz_logo.zip` | `https://zilliz.com/images/brandAssets/zilliz-powered-by-milvus.png` |
+| Milvus (built by Zilliz) | `https://assets.zilliz.com/milvus_logo.zip` | `https://zilliz.com/images/brandAssets/milvus-build-by-zilliz.png` |
+| VectorDBBench | `https://assets.zilliz.com/vector-db-bench-logo.zip` | `https://zilliz.com/images/brandAssets/vector-db-bench.png` |
+| Milvus Sizing Tool | `https://assets.zilliz.com/milvus-sizing-tool-logo.zip` | `https://zilliz.com/images/brandAssets/sizing-tool.png` |
+| PyMilvus SDK | `https://assets.zilliz.com/pymilvus-sdk-logo.zip` | `https://zilliz.com/images/brandAssets/pymilvus-sdk.png` |
+| Attu | `https://assets.zilliz.com/attu-logo.zip` | `https://zilliz.com/images/brandAssets/attu.png` |
+| CLI | `https://assets.zilliz.com/cli-logo.zip` | `https://zilliz.com/images/brandAssets/cli.png` |
+| DeepSearcher | `https://assets.zilliz.com/deepsearcher-logo.zip` | `https://zilliz.com/images/brandAssets/deep-searcher.png` |
+| GPTCache | `https://assets.zilliz.com/gptcache-logo.zip` | `https://zilliz.com/images/brandAssets/gpt-cache.png` |
+| Cardinal | `https://assets.zilliz.com/cadinal-logo.zip` | `https://zilliz.com/images/brandAssets/cardinal.png` |
+| VTS (Vector Transport Service) | `https://assets.zilliz.com/vts-logo.zip` | `https://zilliz.com/images/brandAssets/vts.png` |
+| Knowhere | `https://assets.zilliz.com/knowhere-logo.zip` | `https://zilliz.com/images/brandAssets/knowhere.png` |
+| Milvus Backup | `https://assets.zilliz.com/milvus-backup-logo.zip` | `https://zilliz.com/images/brandAssets/milvus-backup.png` |
+| Woodpecker | `https://assets.zilliz.com/woodpecker-logo.zip` | `https://zilliz.com/images/brandAssets/woodpecker.png` |
+
+**How to use the official logo when building an artifact:**
+1. Download the relevant package, e.g. `curl -L -o zilliz-logo.zip https://assets.zilliz.com/zilliz-logo.zip` and unzip it.
+2. Pick the correct variant for the background (gradient/black on light, white on dark — see variants below).
+3. Reference or embed the actual file. For quick web previews you may hotlink the official preview PNG
+   (e.g. `https://zilliz.com/images/brandAssets/zilliz.png`), but prefer the downloaded vector files for production.
+4. If downloading is not possible in the current environment, **say so and omit the logo** — never substitute an invented one.
+
+By downloading these assets you agree to the Zilliz Terms & Conditions. Questions or assets not
+listed here: contact `marketing@zilliz.com`.
+
 ### Core Logo
-The Zilliz logo consists of a **logomark** (star symbol) and **logotype** (wordmark). This is the primary logo and must be used without modification.
+The Zilliz logo consists of a **logomark** (star symbol) and **logotype** (wordmark). This is the primary logo and must be used without modification — only from the official files above.
 
 ### Symbol (Logomark)
 - 12 lines of different lengths representing vector coordinates, resembling a twinkling star
@@ -40,6 +84,7 @@ The Zilliz logo consists of a **logomark** (star symbol) and **logotype** (wordm
 - Recommended sizes: 120px, 72px, 48px
 
 ### Logo Color Variants
+Each official package contains these variants — pick one, never recolor the logo yourself:
 1. **Gradient** (preferred, especially on digital media) — the gradient is Zilliz's unique identity
 2. **Black**: RGB 0,0,0 / HEX #000000
 3. **White**: RGB 255,255,255 / HEX #FFFFFF (reverse/knockout version)
@@ -168,7 +213,7 @@ code, pre {
 
 ### Blog Covers and Social Media
 - Use the brand gradient as background
-- White Zilliz logo in upper-left
+- Official **white** Zilliz logo (from the brand-assets package) in upper-left — never a recreated one
 - Title text in white, Inter SemiBold
 - Speaker/author photos in circular frames with white borders
 - Include thin decorative arc lines in white (characteristic of Zilliz visual style)
@@ -187,7 +232,7 @@ For dark backgrounds (Navy #061982 or Black #000000):
 ## Key Visual Motifs
 
 1. **Vector coordinate lines**: Diagonal lines in blue/purple/pink representing vectors — used in roll-up banners, virtual backgrounds, dark-theme materials
-2. **Gradient star symbol**: The logomark rendered with the brand gradient on circular backgrounds — used for badge pins, stickers, app icons
+2. **Gradient star symbol**: The official logomark rendered with the brand gradient on circular backgrounds — used for badge pins, stickers, app icons. Use the provided logomark file; do not redraw the star.
 3. **Thin arc lines**: Subtle curved white lines overlaid on gradient backgrounds — used in blog covers and event materials
 
 ## Quick Reference — Color Codes
